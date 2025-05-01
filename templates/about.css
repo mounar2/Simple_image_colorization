@@ -1,0 +1,68 @@
+*
+  .go-al{
+       color: black;
+        margin-left: 50%;
+  
+        background: linear-gradient(135deg, #d9e4f5, #ffffff);
+        padding: 30px;
+       /* clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);*/
+        border-radius: 50px;
+        margin-bottom: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.938);
+        transition: transform 0.3s ease;
+        margin-right: 10%;
+  }
+  .feau-tres{
+    color: black;
+    margin-left: 10%;
+    background: linear-gradient(135deg, #d9e4f5, #ffffff);
+    padding: 30px;
+   /* clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);*/
+    border-radius: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.938);
+    transition: transform 0.3s ease;
+    margin-right: 50%;
+  }
+  .intr-odtion .around{
+    color: black;
+    color: rgb(0, 0, 0);
+     margin-left: 10%;
+     background-color: linear-gradient(135deg, #d9e4f5, #ffffff);
+     border-radius: 20px;
+     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+     padding: 30px;
+      margin-bottom: 40px;
+     transition: transform 0.3s ease;
+     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+   margin-right: auto;
+   
+  }
+  
+  .go-al .mission{
+    color: black;
+    margin-left: 5%;
+  }
+  .feau-tres .offer{
+    color: black;
+    margin-left: 5%;
+  }
+  .pic{
+   width: 400px;
+   height: auto;
+   display: block;
+   margin-right: 80%;
+}
+  img-cont{
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 10px;
+   
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  

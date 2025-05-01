@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Colorizer</title>
+  <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+   <div class="container">
+      <header>
+        <nav class="navbar">
+          <a href="#" class="nav-logo">
+            <img src="static/rokLogo.png" alt="logo" class="navbar-logo-img">
+          </a>
+          <h2 class="logo-text">COLOR IT</h2>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="About.html" class="nav-link">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+   </div>
+   
+   <main>
+      <div class="upload-area">  
+         <h1>Image Colorizer</h1>
+         <p>Upload a black and white image to colorize it</p>
+         <div class="img-area">
+            <h3>Upload image</h3>
+            <!-- Label wrapping the icon to trigger the file input -->
+            <label for="imageUpload" class="upload-icon">
+              <i class='bx bx-upload'></i>
+            </label>
+            <input type="file" id="imageUpload" accept="image/*">
+            
+         </div>
+      </div>
+      
+      <!-- Colorize Button -->
+      <div class="button-container">
+        <button id="colorizeButton">
+          <p>Colorize</p>
+        </button>
+      </div>
+
+      <!-- Result Section -->
+      <section class="result-section" id="resultSection" style="display:none;">
+      <img id="colorizedImage" alt="Colorized Image" style="max-width: fit-content; height: fit-content;">
+        <h3>Colorized Image</h3>
+      
+      </section>
+       
+   </main>
+
+   <footer>
+      <p>Powered by: AI (DNN architecture)</p>
+      <p>Contact us:
+        <a href="mailto:simpleimagecolorization@gmail.com" style="color:rgb(255, 217, 0, 0.726); text-decoration: none;">simpleimagecolorization@gmail.com</a>
+      </p>
+   </footer>
+</body>
+
+</html>
+<script>
+  const uploadInput = document.getElementById("imageUpload");
+  const colorizeBtn = document.getElementById("colorizeButton");
+  const resultSection = document.getElementById("resultSection");
+  const resultImage = document.getElementById("colorizedImage");
+
+  colorizeBtn.addEventListener("click", async () => {
+    const file = uploadInput.files[0];
+    if (!file) {
+      alert("Please upload an image first!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const response = await fetch("/colorize", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to colorize image.");
+      }
+
+      // استقبل الصورة كـ Blob
+      const blob = await response.blob();
+      const imageUrl = URL.createObjectURL(blob);
+      
+      resultImage.src = imageUrl;
+      resultSection.style.display = "block";
+
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred while colorizing the image.");
+    }
+  });
+</script>
