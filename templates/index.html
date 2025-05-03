@@ -33,6 +33,11 @@
          <p>Upload a black and white image to colorize it</p>
          <div class="img-area">
             <h3>Upload image</h3>
+            <section class="result-section" id="resultSection" style="display:none;">
+              <img id="colorizedImage" alt="Colorized Image" style="max-width: max-contnt; height: max-content;">
+                <h3>Colorized Image</h3>
+              
+              </section>
             <!-- Label wrapping the icon to trigger the file input -->
             <label for="imageUpload" class="upload-icon">
               <i class='bx bx-upload'></i>
@@ -49,13 +54,7 @@
         </button>
       </div>
 
-      <!-- Result Section -->
-      <section class="result-section" id="resultSection" style="display:none;">
-      <img id="colorizedImage" alt="Colorized Image" style="max-width: fit-content; height: fit-content;">
-        <h3>Colorized Image</h3>
-      
-      </section>
-       
+     
    </main>
 
    <footer>
@@ -93,7 +92,7 @@
         throw new Error("Failed to colorize image.");
       }
 
-      // استقبل الصورة كـ Blob
+    
       const blob = await response.blob();
       const imageUrl = URL.createObjectURL(blob);
       
